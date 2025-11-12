@@ -1,40 +1,52 @@
-# Mi proyecto
+# Proyecto: Online Store - Evaluación Final (Módulo 2)
 
-A rellenar
+Este repositorio contiene mi proyecto de evaluación final del Módulo 2.
 
-## Guía de inicio rápido
+## Descripción
 
-> **NOTA:** Necesitas tener instalado [Node JS](https://nodejs.org/) con una versión superior a la 14 para trabajar con este Starter Kit:
+Este proyecto es una tienda online donde podremos filtrar productos y añadirlos a la lista de la compra.
 
-### Pasos a seguir cada vez que queremos arrancar un proyecto desde cero:
+Es una pequeña página web creada con Vite. Incluye HTML, CSS (Sass) y JavaScript, y está pensada para practicar maquetación, estilos y comportamiento interactivo.
 
-1. **Crea tu propio repositorio.**
-1. Descarga este **Starter kit desde GitHub**.
-   - No recomendamos que clones este repo ya que no podrás añadir commits.
-1. **Copia todos los ficheros** de este Starter kit en la carpeta raíz de tu repositorio.
-   - Recuerda que debes copiar **también los ficheros ocultos** que comienzan por un punto.
-   - Si has decidido clonar este repo, no debes copiar la carpeta `.git`. Si lo haces estarás machacando tu propio repositorio.
-1. **Abre una terminal** en la carpeta raíz de tu repositorio.
-1. **Instala las dependencias** locales ejecutando en la terminal el comando:
+## Tecnologías
+
+- Vite
+- Sass
+- JavaScript
+
+## Cómo arrancar el proyecto (local)
+
+1. Instalar dependencias:
 
 ```bash
 npm install
 ```
 
-### Pasos para arrancar el proyecto:
-
-Una vez hemos instalado las dependencias, vamos a arrancar el proyecto. **El proyecto hay que arrancarlo cada vez que te pongas a programar.** Para ello ejecuta el comando:
+2. Arrancar el servidor de desarrollo:
 
 ```bash
 npm run dev
 ```
 
-Este comando:
+Esto abre un servidor local (por defecto en http://localhost:5173) y recarga automáticamente cuando cambio archivos.
 
-- **Abre una ventana de Chrome y muestra tu página web**, al igual que hace el plugin de VS Code Live Server (Go live).
-- También **observa** todos los ficheros que hay dentro de la carpeta `src/`, para que cada vez que modifiques un fichero **refresca tu página en Chrome**.
-- También **procesa los ficheros** HTML, SASS / CSS y JS. Por ejemplo:
-  - Convierte los ficheros SASS en CSS.
-  - Combina los diferentes ficheros de HTML y los agrupa en uno o varios ficheros HTML.
+## Construir para producción
 
-Después de ejecutar `npm run dev` ya puedes empezar a editar todos los ficheros que están dentro de la carpeta `src/` y programar cómodamente.
+```bash
+npm run deploy
+```
+
+## Estructura del proyecto
+
+- `src/` - código fuente (HTML, JS, SCSS)
+- `docs/` - carpeta usada para deploy en GitHub Pages (si se genera)
+
+## Notas personales
+
+He intentado seguir buenas prácticas: organizar los estilos en `scss/`, mantener el JavaScript en `js/` y usar Vite para el desarrollo y la build.
+
+Gracias por revisar mi proyecto.
+
+---
+
+Esther 🌸
