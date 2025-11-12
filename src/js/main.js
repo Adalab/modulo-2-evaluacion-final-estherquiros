@@ -27,13 +27,13 @@ function fetchProducts() {
     .then((data) => {
       console.log(data);
       products = data;
-      renderProducts(products);
+      renderProducts(products, productsList);
     });
 }
 
 //PINTAR LOS PRODUCTOS
 
-function renderProducts(products) {
+function renderProducts(products, list) {
   let html = "";
 
   for (const product of products) {
@@ -49,7 +49,7 @@ function renderProducts(products) {
     </li>`;
   }
 
-  productsList.innerHTML = html;
+  list.innerHTML = html;
 }
 
 fetchProducts();
@@ -71,9 +71,11 @@ productsList.addEventListener("click", (ev) => {
   });
   console.log(existProductOnShoppingCart);
 
-  if (!Boolean(existProductOnShoppingCart)) {
+  if (existProductOnShoppingCart === -1) {
     shoppingCart.push(product);
   }
+
+  renderProducts(shoppingCart, shoppingCartList);
 
   console.log(shoppingCart);
 });
