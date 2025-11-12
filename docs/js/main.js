@@ -1,11 +1,11 @@
-const m="https://fakestoreapi.com/products",u=document.querySelector(".js_products-list"),g=document.querySelector(".js_shopping-cart"),h=document.querySelector(".js_findFormInput"),S=document.querySelector(".js_findFormButton");let d=[],e=[];const p=localStorage.getItem("cart");p&&(e=JSON.parse(p),l(e,g,"hidden"));const C=t=>{t.preventDefault();const r=h.value,c=d.filter(o=>o.title.toLowerCase().includes(r.toLowerCase()));l(c,u)};S.addEventListener("click",C);function $(){fetch(m).then(t=>t.json()).then(t=>{console.log(t),d=t,l(d,u)})}function l(t,r,c){let o="",n="Buy",s="";for(const i of t){let a=i.image;a===void 0&&(a="https://placehold.co/600x400"),e.find(f=>i.id===f.id)&&(n="Delete",s="on-cart"),o+=`<li class="product-card ${s}">
+const h="https://fakestoreapi.com/products",a=document.querySelector(".js_products-list"),f=document.querySelector(".js_shopping-cart"),g=document.querySelector(".js_findFormInput"),S=document.querySelector(".js_findFormButton");let d=[],o=[];const l=localStorage.getItem("cart");l&&(o=JSON.parse(l),u(o,f,"hidden"));const C=t=>{t.preventDefault();const r=g.value,c=d.filter(s=>s.title.toLowerCase().includes(r.toLowerCase()));u(c,a)};S.addEventListener("click",C);function $(){fetch(h).then(t=>t.json()).then(t=>{d=t,u(d,a)})}function u(t,r,c){let s="",e="Buy",n="";for(const i of t){let p=i.image;p===void 0&&(p="https://placehold.co/600x400"),o.find(m=>i.id===m.id)&&(e="Delete",n="on-cart"),s+=`<li class="product-card ${n}">
     <div class="product-img-title"> 
-    <img class="product-img"src="${a}"/>
-    <h2 class="product-title ${s}">${i.title}</h2>
+    <img class="product-img"src="${p}"/>
+    <h2 class="product-title ${n}">${i.title}</h2>
     </div>
     <div class="product-price-button">
-    <p class="product-price ${s}">${i.price}€</p>
-    <button class="product-button ${c} ${s}" data-id="${i.id}">${n}</button>
+    <p class="product-price ${n}">${i.price}€</p>
+    <button class="product-button ${c} ${n}" data-id="${i.id}">${e}</button>
     </div>
-    </li>`,n="Buy",s=""}r.innerHTML=o}$();u.addEventListener("click",t=>{t.preventDefault(),console.log(t.target.dataset.id);const r=t.target.dataset.id,c=d.find(n=>Number(n.id)===Number(r));console.log(c);const o=e.findIndex(n=>Number(n.id)===Number(r));console.log(o),o===-1&&e.push(c),l(e,g,"hidden"),l(d,u),console.log(JSON.stringify(e)),localStorage.setItem("cart",JSON.stringify(e)),console.log(e)});
+    </li>`,e="Buy",n=""}r.innerHTML=s}$();a.addEventListener("click",t=>{t.preventDefault();const r=t.target.dataset.id,c=d.find(e=>Number(e.id)===Number(r));o.findIndex(e=>Number(e.id)===Number(r))===-1&&o.push(c),u(o,f,"hidden"),u(d,a),localStorage.setItem("cart",JSON.stringify(o))});
 //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZXMiOltdLCJzb3VyY2VzQ29udGVudCI6W10sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7OzsifQ==
