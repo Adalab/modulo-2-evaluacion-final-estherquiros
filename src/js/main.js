@@ -7,6 +7,15 @@ const findFormButton = document.querySelector(".js_findFormButton");
 
 let products = [];
 let shoppingCart = [];
+//obtengo los datos del carrito guardados en el LS.
+const shoppingCartStorage = localStorage.getItem("cart");
+//Si recupero los datos (no es null, hay cositas en el carro)
+if (shoppingCartStorage) {
+  //entonces, los datos guardados los meo en la variable shoppingCart
+  shoppingCart = JSON.parse(shoppingCartStorage);
+  //renderizo porque sino no se muestra
+  renderProducts(shoppingCart, shoppingCartList, "hidden");
+}
 
 //FILTRO Y BOTON BUSCAR
 const handleInputNameFilter = (ev) => {
@@ -98,6 +107,10 @@ productsList.addEventListener("click", (ev) => {
   renderProducts(shoppingCart, shoppingCartList, "hidden");
   //para que se me cambie el boton a eliminar tengo que volver a rnderizar la ul
   renderProducts(products, productsList);
+
+  // guardar el carrito en el localStorage
+  console.log(JSON.stringify(shoppingCart));
+  localStorage.setItem("cart", JSON.stringify(shoppingCart));
 
   console.log(shoppingCart);
 });
