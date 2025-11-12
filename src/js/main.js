@@ -37,17 +37,35 @@ function fetchProducts() {
 function renderProducts(products, list, hiddenClass) {
   let html = "";
 
+  let buttonText = "Buy";
+  let onCartClass = "";
+
   for (const product of products) {
-    html += `<li class="product-card">
+    //recorro la lista de la compra para ver si el producto existe dentro de ella (para saber cuando poner eliminar)
+    const existsOnShoppingCart = shoppingCart.find((shpPro) => {
+      return product.id === shpPro.id;
+    });
+
+    // si el producto está en la shopping cart cambiamos el nombre del botón y las clases
+    if (existsOnShoppingCart) {
+      buttonText = "Delete";
+      onCartClass = "on-cart";
+    }
+
+    html += `<li class="product-card ${onCartClass}">
     <div class="product-img-title"> 
     <img class="product-img"src="${product.image}"/>
-    <h2 class="product-title">${product.title}</h2>
+    <h2 class="product-title ${onCartClass}">${product.title}</h2>
     </div>
     <div class="product-price-button">
-    <p class="product-price">${product.price}€</p>
-    <button class="product-button ${hiddenClass}" data-id="${product.id}">Buy</button>
+    <p class="product-price ${onCartClass}">${product.price}€</p>
+    <button class="product-button ${hiddenClass} ${onCartClass}" data-id="${product.id}">${buttonText}</button>
     </div>
     </li>`;
+    //reseteo el texto del boton para que vuelva a buy
+    buttonText = "Buy";
+    //reseteo on-cart y pongo vacio para que no se apliquen los estilos
+    onCartClass = "";
   }
 
   list.innerHTML = html;
@@ -78,6 +96,8 @@ productsList.addEventListener("click", (ev) => {
 
   //el hidden para quitar el boton
   renderProducts(shoppingCart, shoppingCartList, "hidden");
+  //para que se me cambie el boton a eliminar tengo que volver a rnderizar la ul
+  renderProducts(products, productsList);
 
   console.log(shoppingCart);
 });

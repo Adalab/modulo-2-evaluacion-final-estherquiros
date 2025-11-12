@@ -18,12 +18,12 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  background-color: #d2b1c9;
 }
 
 .title {
   line-height: 4rem;
   padding-inline: 2rem;
-  background-color: #d2b1c9;
 }
 .main {
   background-color: #ffefe4;
@@ -80,7 +80,8 @@ body {
   padding: 2rem;
   width: 100%;
 
-  .product-img-title {
+  &.on-cart {
+    background-color: #efdce7;
   }
 
   .product-price-button {
@@ -98,13 +99,20 @@ body {
   .product-title {
     font-size: 1rem;
     text-align: center;
+
+    &.on-cart {
+      color: #757575;
+    }
   }
   .product-price {
     font-size: 1rem;
     text-align: center;
+    &.on-cart {
+      color: #757575;
+    }
   }
   .product-button {
-    width: 5rem;
+    width: fit-content;
     font-size: 1rem;
     align-self: center;
     border: none;
@@ -115,6 +123,10 @@ body {
     font-size: 20px;
     cursor: pointer;
     font-family: "Poppins", sans-serif;
+    &.on-cart {
+      background-color: #d2b1c9;
+      color: #757575;
+    }
   }
 }
 
